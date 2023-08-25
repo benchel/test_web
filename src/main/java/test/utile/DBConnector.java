@@ -11,10 +11,10 @@ import java.sql.SQLException;
  */
 public class DBConnector {
 	
-	private static String driver = "";
-	private static String url = "";
-	private static String id = "";
-	private static String pwd = "";
+	private static String driver = "org.mariadb.jdbc.Driver";
+	private static String url = "jdbc:mariadb://localhost:3306/sample_db";
+	private static String id = "gasipan";
+	private static String pwd = "gasipan";
 	
 	private static Connection conn;
 	
@@ -24,6 +24,8 @@ public class DBConnector {
 				Class.forName(driver);
 				conn = DriverManager.getConnection(url, id, pwd);
 			}
+			
+			System.out.println("DB 연결 성공");
 		} catch (ClassNotFoundException e) {
 			System.out.println(e.getMessage());
 		} catch (SQLException e) {
